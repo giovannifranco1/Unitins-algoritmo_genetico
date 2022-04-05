@@ -1,12 +1,23 @@
-from grade.grade import Grade, Aula
+from grade.aula import Aula
 from grade.professor import Professor
 
-# periodo1 = grade.Grade('Brayan', 'IA', 'Segunda', 'Matutino', '2', '1')
-# periodo2 = grade.Grade('Brayan', 'IA', 'Segunda', 'Matutino', '2', '2')
+lista_professores = []
 
-professor1 = Professor('Jânio', 'segunda')
-grade1 = Aula('1 período')
+lista_professores.append(Professor(nome='Jânio', dia='segunda', turno='manhã'))
+lista_professores.append(Professor(nome='Tamies', dia='terça', turno='tarde'))
+lista_professores.append(Professor(nome='Yhan', dia='quarta', turno='noite'))
+lista_professores.append(Professor(nome='Júlio', dia='quinta', turno='manhã'))
+lista_professores.append(Professor(nome='Brayan', dia='sexta', turno='tarde'))
+lista_professores.append(Professor(nome='Iann', dia='segunda', turno='noite'))
+lista_professores.append(Professor(nome='Giovanni', dia='terça', turno='manhã'))
+lista_professores.append(Professor(nome='Alex', dia='quarta', turno='tarde'))
+lista_professores.append(Professor(nome='Silvano', dia='quinta', turno='noite'))
+lista_professores.append(Professor(nome='Napoleão', dia='sexta', turno='manhã'))
+lista_professores.append(Professor(nome='Leandra', dia='segunda', turno='tarde'))
+lista_professores.append(Professor(nome='Carlos', dia='terça', turno='noite'))
+lista_professores.append(Professor(nome='Ligia', dia='quarta', turno='manhã'))
+lista_professores.append(Professor(nome='Odi', dia='quinta', turno='tarde'))
+lista_professores.append(Professor(nome='Mailson', dia='sexta', turno='noite'))
 
-print(grade1)
-
-professores = {'professor': [Professor('Jânio'), Professor('Silvano'), Professor('Thamires')]}
+for professor in lista_professores:
+    print(professor)
