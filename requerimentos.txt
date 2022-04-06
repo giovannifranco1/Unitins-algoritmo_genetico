@@ -1,0 +1,4 @@
+Disciplinas repetidas no mesma grade
+Professores não podem dar aula em dias e turnos nas quais ele não está disponível
+
+Grade fechada são os nossos individuos
