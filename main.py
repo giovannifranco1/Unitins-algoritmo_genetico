@@ -1,7 +1,10 @@
-from prettytable import PrettyTable
+# -*- coding: utf-8 -*-
 
+from prettytable import PrettyTable
+from matplotlib import pyplot as pl
 import random as rd
 
+from ag import AG
 from models.professor import Professor
 from models.aula import Aula
 
@@ -33,12 +36,39 @@ lista_professores.append(Professor(nome='Mailson', dia='sexta', turno='noite'))
 # lista_aulas.append(Aula(periodo=1, professor=lista_professores[3], materia='Português', sala='Sala 4'))
 # lista_aulas.append(Aula(periodo=1, professor=lista_professores[4], materia='Front End', sala='Sala 5'))
 
+nomes = []
+dias = []
+turnos = []
 
-my_table.field_names = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"]
-my_table.add_row([lista_professores[rd.randint(0, 14)], lista_professores[rd.randint(0, 14)], lista_professores[rd.randint(0, 14)], lista_professores[rd.randint(0, 14)], lista_professores[rd.randint(0, 14)]])
+for professor in lista_professores:
+    nomes.append(professor.nome)
+    dias.append(professor.dia)
+    turnos.append(professor.turno)
+limite = 3  
+tamanho_populacao = 20
+taxa_mutacao = 0.01
+numero_geracoes = 100
+
+ag = AG(tamanho_populacao)
+
+resultado = ag.solve(taxa_mutacao,numero_geracoes,espacos,valores,limite)
+
+for i in range(len(lista_professores)):
+    if resultado[i] == 1:
+      print(f'Professor: {lista_professores[i].nome}')
+        # print("Nome: %s \n R$: %s \n " % (
+        #     lista_professores[i].name, 
+        #     lista_professores[i].value))
+    
+pl.plot(ag.solution_list)
+pl.title("Acompanhamento dos valores")
+pl.show()
+
+# my_table.field_names = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"]
+# my_table.add_row([lista_professores[rd.randint(0, 14)], lista_professores[rd.randint(0, 14)], lista_professores[rd.randint(0, 14)], lista_professores[rd.randint(0, 14)], lista_professores[rd.randint(0, 14)]])
 # my_table.add_row([lista_professores[5], lista_professores[6], lista_professores[7], lista_professores[8], lista_professores[9]])
 # my_table.add_row([lista_professores[10], lista_professores[11], lista_professores[12], lista_professores[13], lista_professores[14]])
-print(my_table)
+# print(my_table)
 
 # for professor in lista_professores:
 #     print(professor)
